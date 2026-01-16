@@ -7,7 +7,11 @@ This project was implemented as part of the **JS Hackathon in Kherson (24-11-201
 
 Contact details of everyone who worked on this project can be found at the bottom.
 
+Live preview and final result
+https://borschcode.github.io/Hackathon/
+
 ---
+![attention image](/docs/new-index.png)
 
 ## Task Description and Basic Concepts
 
@@ -49,6 +53,7 @@ Drawing is performed using two movement commands:
 ---
 
 ![attention image](/docs/index.png)
+
 
 There are almost no comments in the code — and they are not needed.
 Everything is clear thanks to **clean and well-thought-out variable naming**.
