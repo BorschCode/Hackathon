@@ -1,11 +1,19 @@
+/* ===== Base ===== */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #f2f2f2;
-    font-family: 'Roboto', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #333333;
+    color: #333;
     text-align: center;
-    margin:0;
+    margin: 0;
 }
+
 h1 {
     font-weight: 500;
     color: #313738;
@@ -14,53 +22,35 @@ h1 {
     display: inline-block;
     margin: 0;
 }
-td{
-    width: 25px;
-    height: 25px;
-}
-#tools_table td {
-    width: 50%;
-    height: 50%;
-}
-.btn {
-    font-family: "Roboto medium", sans-serif;
-    font-size: 14px;
-    display: inline-block;
-    height: 36px;
-    min-width: 88px;
-    padding: 6px 16px;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 0;
-    border-radius: 2px;
-    background: #539AD5;
-    color: #fff;
-    outline: 0;
+
+/* ===== Layout ===== */
+.container {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.btn:hover {
-    background: steelblue;
+#canvas {
+    float: left;
+    width: 40%;
+    padding: 10px;
+    position: relative;
 }
-.button {
-    width: 200px;
-    text-decoration: none;
-    margin-top: 22px;
-    margin-left: 10px;
-    height: 46px;
-    z-index: 2;
+
+#tools {
+    float: left;
+    width: 30%;
 }
-input[disabled] {
-    background: steelblue;
+
+#box {
+    float: right;
+    width: 30%;
+    padding: 10px;
+    background-color: #f8de98;
+    overflow: auto;
 }
+
+/* ===== Cards ===== */
 .card {
     background: #fff;
     border-radius: 2px;
@@ -70,83 +60,130 @@ input[disabled] {
     position: relative;
     width: 100%;
 }
+
 .card-1 {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),
+    0 1px 2px rgba(0,0,0,.24);
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
 }
 
 .card-1:hover {
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 5px 18px rgba(0,0,0,.25),
+    0 5px 5px rgba(0,0,0,.22);
 }
+
 .card-2 {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),
+    0 3px 6px rgba(0,0,0,.23);
 }
-div#canvas {
+
+/* ===== Grid ===== */
+#inner {
     position: relative;
-    width: 30%;
-    padding: 10px;
+    width: 90%;
+    margin: auto;
 }
+
+td {
+    width: 25px;
+    height: 25px;
+}
+
+#tools_table td {
+    width: 50%;
+    height: 50%;
+}
+
+/* ===== Canvas ===== */
 canvas {
-    position:absolute;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 500px;
     height: 500px;
-    top:0;
-    left:0;
-    lineWidth: 3px;
-}
-*, *:before, *:after {
-    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 2;
 }
 
-.container {
-    width: 95%;
-    margin: auto;
-    height: 100%;
-}
-#canvas {
-    float:left;
-    width:40%;
-}
-#tools {
-    float: left;
-    width: 30%;
-}
-#task{
-    margin: 10px;
+/* ===== Axes (CORRECT) ===== */
+#axis-x {
+    position: absolute;
+    height: 2px;
+    background: #000;
+    z-index: 3;
 }
 
-#aim{
+#axis-y {
+    position: absolute;
+    width: 2px;
+    background: #000;
+    z-index: 3;
+}
+
+/* ===== Aim ===== */
+#aim {
     position: absolute;
     display: none;
-}
-#inner{
-    width: 90%;
-}
-#line{
-    border-left: 2px solid blue;
-    border-bottom:  2px solid blue;
-    width: 70%;
-    height: 75%;
-    position: absolute;
-    top: 6%;
-    left: 13%;
+    z-index: 4;
 }
 
+/* ===== Buttons ===== */
+.btn {
+    font-family: "Roboto Medium", sans-serif;
+    font-size: 14px;
+    display: inline-block;
+    height: 36px;
+    min-width: 88px;
+    padding: 6px 16px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    background: #539AD5;
+    color: #fff;
+}
+
+.btn:hover {
+    background: steelblue;
+}
+
+.button {
+    width: 200px;
+    margin-top: 22px;
+    margin-left: 10px;
+    height: 46px;
+}
+
+input[disabled] {
+    background: steelblue;
+}
+
+/* ===== Inputs ===== */
+.right,
+label {
+    height: 46px;
+    margin-top: 22px;
+    text-align: center;
+}
+
+/* ===== Info box ===== */
+#task {
+    margin: 10px;
+    text-align: left;
+}
+
+/* ===== Navbar ===== */
 .navbar {
-    height: auto;
     background-image: url("../img/bg.png");
     background-repeat: repeat-x;
     background-position: right top;
-    padding: 5px;
+    padding: 5px 10px;
     margin-bottom: 40px;
-    width: 100%;
-    line-height: 1.4;
-    padding-right: 10px;
 }
+
 .nav {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
     display: inline-block;
 }
 
@@ -167,24 +204,4 @@ canvas {
 .nav-right {
     float: right;
     line-height: 39px;
-}
-
-.nav-right {
-    float: right;
-    line-height: 39px;
-}
-.right, label{
-    margin: auto;
-    height: 46px;
-    text-decoration: none;
-    margin-top: 22px;
-    text-align: center;
-}
-#box {
-    float:right;
-    width:30%;
-    padding: 10px;
-    margin: auto;
-    background-color: #f8de98;
-    overflow: auto;
 }

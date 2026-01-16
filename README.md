@@ -1,172 +1,155 @@
-Исполнитель "Чертежник"
+# Executor “Draftsman” (Чертежник)
+
 =======================
 
-Данный проект был реализован в рамках [JS-хакатона в Херсоне 24-11-2017](https://dataart.ua/events/kherson/pervyi-js-khakaton-proidet-v-khersone/) контакты тех кто трудился над эти проектом есть внизу.
--------------------------------------------------
-###Описание задачи и базовые конструкции принятые автором(А.П.Ершев) данного исполнителя.
-(почему на срабатывают заголовки в виде # я не знаю - кто в крусе подскажите,в ИДЕ всё отлично ототбражает)
+This project was implemented as part of the **JS Hackathon in Kherson (24-11-2017)**
+[https://dataart.ua/events/kherson/pervyi-js-khakaton-proidet-v-khersone/](https://dataart.ua/events/kherson/pervyi-js-khakaton-proidet-v-khersone/)
 
+Contact details of everyone who worked on this project can be found at the bottom.
 
-Исполнитель Чертежник предназначен для построения рисунков на координатной плоскости.
-При задании точек этой координатной плоскости, в отличие от того, как это принято в математике, координаты х и у разделяются запятой.
+---
 
-Чертежник имеет перо, которое можно поднимать, опускать и перемещать. При перемещении опущенного пера за ним остается след — отрезок от предыдущего положения пера до нового. При перемещении поднятого пера никакого следа на плоскости не остается. В начальном положении перо Чертежника всегда поднято и находится в точке (0, 0).
-По команде подними перо Чертежник поднимает перо. Если перо уже было поднято, Чертежник игнорирует эту команду: он не меняет положение пера и не сообщает об отказе. Иначе говоря, каким бы ни было положение пера до команды подними перо, после этой команды оно будет поднятым.
-Точно так же, независимо от первоначального положения, после выполнения команды опусти перо оно оказывается опущенным, то есть готовым к рисованию.
-Рисунки Чертежник выполняет с помощью команд переведи в точку и сдвинь на вектор. 
+## Task Description and Basic Concepts
 
+*(based on the ideas of A. P. Yershov, author of the original “Executor” concept)*
 
+> *(Why Markdown headers with `#` sometimes don’t work here — I don’t know. In the IDE everything is displayed correctly. If you know the reason, please tell me.)*
 
-![картинка для пивлечения внимания](https://screenshots.firefoxusercontent.com/images/3f3bab08-abce-45b5-8a27-04457f8bfeeb.png)
+The **Draftsman Executor** is designed to draw figures on a coordinate plane.
 
-Коментарии в коде почти отсутсвуют они и не нужны - всё и так понятно благодаря грамотному(и талантливому) именованию переменных.
+When specifying points on the plane, unlike standard mathematical notation, the **X and Y coordinates are separated by a comma**.
 
+The Draftsman has a **pen** that can be:
 
+* lifted,
+* lowered,
+* and moved.
 
+When the pen is **lowered** and moved, it leaves a trace — a line segment from the previous pen position to the new one.
+When the pen is **raised**, moving it leaves no trace.
 
+At the initial state, the Draftsman’s pen is always **raised** and positioned at **(0, 0)**.
 
+### Pen Commands
 
->   Данный проект реализован с использованием языка JavaScript - на нём лежит основное взаимодействие с пользователей, для верстки страницы использован стандатно HTML+CSS
+* **Lift pen**
+  Lifts the pen.
+  If the pen is already lifted, the command is ignored.
+  After this command, the pen is guaranteed to be lifted.
 
+* **Lower pen**
+  Lowers the pen.
+  Regardless of the previous state, after executing this command the pen is ready to draw.
 
-Установка 
-------------
+Drawing is performed using two movement commands:
 
-Удобнее всего будет скачать архивом с данного репозитория и распаковать.
+* **Move to point**
+* **Move by vector**
 
-Инструкции по установке:
+---
 
-    Распакуйте архив.
-    Найдите файл main.html.
-    Запустите его.  
-    
-### Список файлов с описанием их функций
+![attention image](/docs/index.png)
 
-Проект по факту состоит из пары файлов разбросаных по папках. 
+There are almost no comments in the code — and they are not needed.
+Everything is clear thanks to **clean and well-thought-out variable naming**.
 
+---
 
-```php
-Название файла        | Содержание файла
-----------------------|----------------------
-index.html            | Подготовленный файл для работы и вашего удобства
-js                    | Папка со скриптами
-styles                | Папка со стилями
-img                   | Папка с картинками
-README.md             | Файл описание который вы сейчас читаете
-----------------------|-----------------------
+> This project is implemented using **JavaScript**, which handles user interaction.
+> The page layout is done using standard **HTML + CSS**.
+
+---
+
+## Installation
+
+---
+
+The easiest way is to download the repository as an archive and extract it.
+
+### Installation steps:
+
+1. Extract the archive.
+2. Locate the file `main.html`.
+3. Open it in a browser.
+
+---
+
+## File List and Purpose
+
+The project consists of a small number of files organized into folders.
+
+```text
+File / Folder Name     | Description
+---------------------- | -------------------------------------------
+index.html             | Ready-to-use main application file
+js                     | JavaScript scripts
+styles                 | CSS styles
+img                    | Images
+README.md              | This documentation file
 ```
 
+---
 
+## Project Description and Main Features
 
-Требования
-------------
-Стандартные требования к Браузеру.
-Ниже они более подробно описаны для вашего удобства
+---
 
-        Операционные системы
-            Windows 7
-            Windows 8
-            Windows 8.1
-            Windows 10
-        Рекомендуемая системная конфигурация
-            Процессор Pentium 4 или более новый, поддерживаюший SSE2
-            512 МБ RAM/
-            2 ГБ RAM для 64-битной сборки
-            200 МБ дискового пространства
-        Mac
-        Операционные системы
-            Mac OS X 10.9
-            Mac OS X 10.10
-            Mac OS X 10.11
-            Mac OS X 10.12
-            Mac OS X 10.13
-        
-        Рекомендуемая системная конфигурация
-        
-            Компьютер Макинтош с процессором Intel x86
-            512 МБ RAM
-            200 МБ дискового пространства
-        
-        Linux
-        
-        Обратите внимание, что дистрибутивы Linux могут включать в них сборки Firefox, требования которых будут отличаться от приведённых ниже.
-        Firefox не будет работать без следующих библиотек или пакетов:
-        
-            GTK+ 3.4 или выше
-            GLib 2.22 или выше
-            Pango 1.14 или выше
-            X.Org 1.0 или выше (рекомендуется 1.7 или выше)
-            libstdc++ 4.6.1 или выше
-        
-        Для оптимальной работы мы рекомендуем установить следующие библиотеки или пакеты:
-        
-            NetworkManager 0.7 или выше
-            DBus 1.0 или выше
-            GNOME 2.16 или выше
-            PulseAudio
-        
-        iOS
-        Операционные системы
-        
-            iOS 10.3 или более поздняя версия
-        
-        Android
-        Операционные системы
-        
-            Android 4.1 или более поздняя версия
-            50 Мб внутренней памяти
-            384МБ оперативной памяти
-            Дисплей с разрешением не менее 320x240 пикселей
+Clicking the image below opens a **YouTube video presentation** of the program.
 
+[![video preview](/docs/index.png)](https://youtu.be/pJX6LmxbX9Q)
 
+In the original Draftsman from the 1980s, commands were typed into a command line.
 
+In this project, input is **simplified and visual**.
 
-Описание и основные функции реализованного проекта
-------------
-Ссылка на изображении ведёт на ютуб для видеопрезентации данной программы
-[![картинка для пивлечения внимания](https://screenshots.firefoxusercontent.com/images/c984c976-381d-4537-971b-f5c3a47b70bf.png)](https://youtu.be/pJX6LmxbX9Q)
+### Workflow
 
+1. The first step is to specify the **starting point** for drawing.
+2. Choose one of the available commands (descriptions below).
+3. Click the **Draw** button to execute the selected algorithm.
 
-В оригинальном чертежнике из 80-х команды нужно было вводить с клавиатуры в командную строку.
-В данном проекте ввод данных для отрисовки упрощен - нужные 
-Первая шаг который нужно будет сделать пользователю это указать стартовую точку для отрисовки фигур или линии.
+### Movement Commands
 
+* **Move to point (x, y)**
+  Moves the pen to absolute coordinates `(x, y)`, regardless of its previous position.
+  This is an **absolute movement** command.
 
-Далее выбираем необходимую команду из предложнных описание каждой кнопи есть ниже по тексту.
+* **Move by vector (dX, dY)**
+  Moves the pen by `dX` to the right and `dY` upward relative to the current position.
+  If the current position is `(x, y)`, the new position becomes `(x + dX, y + dY)`.
+  This is a **relative movement** command.
 
-Команда “сместиться в точку (x, y)” перемещает перо в точку с координатами (x, y). 
-Не зависимо от предыдущего положения Чертежник окажется в точке с координатами (x, y).
- Эту команду называют командой абсолютного смещения.
-Команда “сместиться на вектор (dX, dY)” перемещает перо на dX вправо и dY вверх.
- Если текущие координаты были (x, y), то новое положение будет (x+dX, y+dY). 
- Т.е. координаты отсчитываются не от начала координат, а относительно текущего положение пера. 
- Эту команду называют командой относительного смещения.
-И дальше остается дело за кнопкой отрисовать фигуру.
-В завивсимости от выбраннного алгоритма программа выполнит функцию.
+The rest is handled automatically based on the chosen algorithm.
 
-Типичные пользователь нашей программы - шестиклассник.
+**Typical user of this program:** a 6th-grade student.
 
-![screenshot of sample](http://imagehost.spark-media.ru/i2/60C1D591-F390-CD57-D106-E0F3D53058DB.jpg)
- 
+![attention image](/docs/index.png)
 
+---
 
-      
-        Название элемента               | Основной функцианал кнопки
-        --------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------
-        ОПУСТИТЬ ПЕРО                   | Эта кнопка которая будет достпуна сразу по загрузке страницы 
-        СМЕСТИТСЯ В ТОЧКУ               | Данная кнопка реализует построение отрезка из первйо указанной точки во втору указанную точку  
-        СМЕСТИТСЯ НА ВЕКТОР             | Данаая кнопка позволит Вам добавить смещение относительно первоначально заданной точки
-        ПОДНЯТЬ ПЕРО                    | Завершить моделирование фигуры и приступить к отрисовке
-        Координата Х                    | Стартовая координата но нижней оси откуда будет просиходить отрисовка отрезка
-        Координата У                    | Стартовая коордаината оси абсцисс
-        To X                            | Куда будет перемещено перо по оси Х - будущая точка оси Х 
-        To Y                            | Куда будет перемещено перо по оси У - будущая точка оси Х 
-         -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+## UI Elements and Their Functions
 
-Оставляйте пожелания и исправления в ветке комментирования кода.
+```text
+UI Element              | Function
+----------------------- | -------------------------------------------------------------------------
+LOWER PEN               | Available immediately after page load
+MOVE TO POINT           | Draws a line from the first point to the second point
+MOVE BY VECTOR          | Adds a displacement relative to the current position
+LIFT PEN                | Finishes drawing the figure
+X Coordinate             | Starting X coordinate
+Y Coordinate             | Starting Y coordinate
+To X                    | Target X coordinate
+To Y                    | Target Y coordinate
+```
 
-Написал логику и ридми файл - [linkedin ](https://www.linkedin.com/in/сергей-обухов-703426140/).
-Реализация логики в код  [linkedin ](https://www.linkedin.com/in/kristrash/).
-Внешний вид и стили  [linkedin ](mailto:o.g.makarova2013@gmail.com ).
- 
+---
+
+## Feedback and Credits
+
+---
+
+Please leave suggestions and fixes in the code comments.
+
+* Logic and README: [GitHub – BorschCode](https://github.com/BorschCode)
+* Logic implementation: [LinkedIn – Krist Rash](https://www.linkedin.com/in/kristrash/)
+* Design and styles: [Email – Olga Makarova](mailto:o.g.makarova2013@gmail.com)
